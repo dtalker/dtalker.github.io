@@ -473,6 +473,27 @@
 <p><img src="/images/14793844027972.jpg" alt=""><br><strong>NN模型</strong>：经典的NLM网络结构（Embedding + 全连接层 + softmax层）<br><strong>Embedding</strong>： word embedding &amp; table embedding(including the start position and end position&lt;双向&gt;)<br><strong>数据</strong>：wiki数据（描述文本 &lt;-&gt; 结构化concepts）<br><strong>details</strong>：<a href="http://www.emnlp2016.net/program/632.html" target="_blank" rel="external">http://www.emnlp2016.net/program/632.html</a><br><strong>My comments</strong>：table embedding的想法不错，这次会议里如何将结构化的信息融合到NN网络中的工作越来越多</p>
 </li>
 </ul>
+<h3 id="Papers：Dialogue-system-session"><a href="#Papers：Dialogue-system-session" class="headerlink" title="Papers：Dialogue system session"></a>Papers：Dialogue system session</h3><p><strong>Paper 1：Nonparametric Bayesian Models for Spoken Language Understanding</strong><br><strong>问题</strong>：SLU中的slot filling问题（当前对话系统中NLU的经典问题），按照slot下value取值是否有限分为两类</p>
+<ul>
+<li>arbitrary slot filling task：建模为序列标注问题</li>
+<li><p>categorical slot filling task：建模为分类问题<br><strong>本文的解决方案</strong></p>
+</li>
+<li><p>观察和假设：slot的value取值虽然很多情况下理论上是非有限的，但是往往其分布（词的分布）是有限的</p>
+</li>
+<li>问题核心：学习一个slot下value的分布</li>
+</ul>
+<p><strong>算法</strong>：</p>
+<ul>
+<li>用Dirichlet Process来对slot下value分布进行建模对于非需要的slot，按照在句子的前、中、后，构建3 slot(begin,middle,end)</li>
+<li>用generative model生成utterance的方式来学习（类似topic model思想）</li>
+</ul>
+<p><img src="/images/14793879067990.jpg" alt=""><br><strong>实际应用中</strong>：对基于序列标注（CRF-Based）生成的候选集（N-Best）利用该分布进行re-ranking<br><strong>My comments</strong>：</p>
+<ul>
+<li>比较精细化优化的一条思路，从应用层面来说，个人可能不会太放在太靠前来考虑尝试</li>
+<li>移植到中文上需要考虑个中文单字与英文letter的范围空间的差异对数据空间要求的差异</li>
+<li>背后的建模假设值得思考：即虽然一些无限取值的slot，但是其“分布”可能是有限的，文中作者提的是letter上的分布。</li>
+</ul>
+<p><strong>Details</strong>： <a href="http://www.emnlp2016.net/program/1118.html" target="_blank" rel="external">http://www.emnlp2016.net/program/1118.html</a> </p>
 <h3 id="Papers：Best-Papers"><a href="#Papers：Best-Papers" class="headerlink" title="Papers：Best Papers"></a>Papers：Best Papers</h3><p><strong>Best long papers</strong></p>
 <ul>
 <li>Improving Information Extraction by Acquiring External Evidence with Reinforcement Learning</li>

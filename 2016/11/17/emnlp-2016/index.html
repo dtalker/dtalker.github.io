@@ -79,9 +79,10 @@
 <meta property="og:image" content="http://dtalker.github.io/images/14793837061525.jpg">
 <meta property="og:image" content="http://dtalker.github.io/images/14793838923686.jpg">
 <meta property="og:image" content="http://dtalker.github.io/images/14793844027972.jpg">
+<meta property="og:image" content="http://dtalker.github.io/images/14793879067990.jpg">
 <meta property="og:image" content="http://dtalker.github.io/images/14793846459520.jpg">
 <meta property="og:image" content="http://dtalker.github.io/images/14793847767793.jpg">
-<meta property="og:updated_time" content="2016-11-17T12:15:07.000Z">
+<meta property="og:updated_time" content="2016-11-17T13:07:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="emnlp 2016参会报告">
 <meta name="twitter:description" content="概要：本文为EMNLP 2016@Austin的参会报告，tutorials、talks的介绍以及一些关注领域(对话系统相关)的paper介绍【内含paper/tutorials/talks的下载地址】
@@ -489,6 +490,27 @@
 <p><img src="/images/14793844027972.jpg" alt=""><br><strong>NN模型</strong>：经典的NLM网络结构（Embedding + 全连接层 + softmax层）<br><strong>Embedding</strong>： word embedding &amp; table embedding(including the start position and end position&lt;双向&gt;)<br><strong>数据</strong>：wiki数据（描述文本 &lt;-&gt; 结构化concepts）<br><strong>details</strong>：<a href="http://www.emnlp2016.net/program/632.html" target="_blank" rel="external">http://www.emnlp2016.net/program/632.html</a><br><strong>My comments</strong>：table embedding的想法不错，这次会议里如何将结构化的信息融合到NN网络中的工作越来越多</p>
 </li>
 </ul>
+<h3 id="Papers：Dialogue-system-session"><a href="#Papers：Dialogue-system-session" class="headerlink" title="Papers：Dialogue system session"></a>Papers：Dialogue system session</h3><p><strong>Paper 1：Nonparametric Bayesian Models for Spoken Language Understanding</strong><br><strong>问题</strong>：SLU中的slot filling问题（当前对话系统中NLU的经典问题），按照slot下value取值是否有限分为两类</p>
+<ul>
+<li>arbitrary slot filling task：建模为序列标注问题</li>
+<li><p>categorical slot filling task：建模为分类问题<br><strong>本文的解决方案</strong></p>
+</li>
+<li><p>观察和假设：slot的value取值虽然很多情况下理论上是非有限的，但是往往其分布（词的分布）是有限的</p>
+</li>
+<li>问题核心：学习一个slot下value的分布</li>
+</ul>
+<p><strong>算法</strong>：</p>
+<ul>
+<li>用Dirichlet Process来对slot下value分布进行建模对于非需要的slot，按照在句子的前、中、后，构建3 slot(begin,middle,end)</li>
+<li>用generative model生成utterance的方式来学习（类似topic model思想）</li>
+</ul>
+<p><img src="/images/14793879067990.jpg" alt=""><br><strong>实际应用中</strong>：对基于序列标注（CRF-Based）生成的候选集（N-Best）利用该分布进行re-ranking<br><strong>My comments</strong>：</p>
+<ul>
+<li>比较精细化优化的一条思路，从应用层面来说，个人可能不会太放在太靠前来考虑尝试</li>
+<li>移植到中文上需要考虑个中文单字与英文letter的范围空间的差异对数据空间要求的差异</li>
+<li>背后的建模假设值得思考：即虽然一些无限取值的slot，但是其“分布”可能是有限的，文中作者提的是letter上的分布。</li>
+</ul>
+<p><strong>Details</strong>： <a href="http://www.emnlp2016.net/program/1118.html" target="_blank" rel="external">http://www.emnlp2016.net/program/1118.html</a> </p>
 <h3 id="Papers：Best-Papers"><a href="#Papers：Best-Papers" class="headerlink" title="Papers：Best Papers"></a>Papers：Best Papers</h3><p><strong>Best long papers</strong></p>
 <ul>
 <li>Improving Information Extraction by Acquiring External Evidence with Reinforcement Learning</li>
@@ -688,7 +710,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#会议概述"><span class="nav-number">1.</span> <span class="nav-text">会议概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tutorials"><span class="nav-number">2.</span> <span class="nav-text">Tutorials</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#T1：Practical-Neural-Networks-for-NLP-From-Theory-to-Code"><span class="nav-number">2.1.</span> <span class="nav-text">T1：Practical Neural Networks for NLP: From Theory to Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T3-Lifelong-Machine-Learning-for-Natural-Language-Processing"><span class="nav-number">2.2.</span> <span class="nav-text">T3: Lifelong Machine Learning for Natural Language Processing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-tutorials"><span class="nav-number">2.3.</span> <span class="nav-text">Other tutorials</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Invited-Talks"><span class="nav-number">3.</span> <span class="nav-text">Invited Talks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Talk1-Learning-in-extended-and-approximate-Rational-Speech-Acts-models"><span class="nav-number">3.1.</span> <span class="nav-text">Talk1: Learning in extended and approximate Rational Speech Acts models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Talk2：You-Talking-to-Me-Speech-based-and-multimodal-approaches-for-human-versus-computer-addressee-detection"><span class="nav-number">3.2.</span> <span class="nav-text">Talk2：You Talking to Me? Speech-based and multimodal approaches for human versus computer addressee detection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Talk3：Learning-Models-of-Language-Action-and-Perception-for-Human-Robot-Collaboration"><span class="nav-number">3.3.</span> <span class="nav-text">Talk3：Learning Models of Language, Action and Perception for Human-Robot Collaboration</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selected-Papers"><span class="nav-number">4.</span> <span class="nav-text">Selected Papers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Papers-–-QA-Session"><span class="nav-number">4.1.</span> <span class="nav-text">Papers – QA Session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Papers-–-Text-Generation-Session"><span class="nav-number">4.2.</span> <span class="nav-text">Papers – Text Generation Session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Papers：Best-Papers"><span class="nav-number">4.3.</span> <span class="nav-text">Papers：Best Papers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">5.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#会议概述"><span class="nav-number">1.</span> <span class="nav-text">会议概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tutorials"><span class="nav-number">2.</span> <span class="nav-text">Tutorials</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#T1：Practical-Neural-Networks-for-NLP-From-Theory-to-Code"><span class="nav-number">2.1.</span> <span class="nav-text">T1：Practical Neural Networks for NLP: From Theory to Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T3-Lifelong-Machine-Learning-for-Natural-Language-Processing"><span class="nav-number">2.2.</span> <span class="nav-text">T3: Lifelong Machine Learning for Natural Language Processing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-tutorials"><span class="nav-number">2.3.</span> <span class="nav-text">Other tutorials</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Invited-Talks"><span class="nav-number">3.</span> <span class="nav-text">Invited Talks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Talk1-Learning-in-extended-and-approximate-Rational-Speech-Acts-models"><span class="nav-number">3.1.</span> <span class="nav-text">Talk1: Learning in extended and approximate Rational Speech Acts models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Talk2：You-Talking-to-Me-Speech-based-and-multimodal-approaches-for-human-versus-computer-addressee-detection"><span class="nav-number">3.2.</span> <span class="nav-text">Talk2：You Talking to Me? Speech-based and multimodal approaches for human versus computer addressee detection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Talk3：Learning-Models-of-Language-Action-and-Perception-for-Human-Robot-Collaboration"><span class="nav-number">3.3.</span> <span class="nav-text">Talk3：Learning Models of Language, Action and Perception for Human-Robot Collaboration</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selected-Papers"><span class="nav-number">4.</span> <span class="nav-text">Selected Papers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Papers-–-QA-Session"><span class="nav-number">4.1.</span> <span class="nav-text">Papers – QA Session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Papers-–-Text-Generation-Session"><span class="nav-number">4.2.</span> <span class="nav-text">Papers – Text Generation Session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Papers：Dialogue-system-session"><span class="nav-number">4.3.</span> <span class="nav-text">Papers：Dialogue system session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Papers：Best-Papers"><span class="nav-number">4.4.</span> <span class="nav-text">Papers：Best Papers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">5.</span> <span class="nav-text">Summary</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
